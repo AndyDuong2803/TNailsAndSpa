@@ -46,7 +46,7 @@
 - https://www.facebook.com/tnailsandspa2023/
 - https://www.instagram.com/
 - https://maps.app.goo.gl/zD5tpTNfN6Ex1btY6
-- https://www.lldtek.org
+- https://www.kruzoservice.com
 - https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
 - http://fontawesome.io
 - http://fontawesome.io/license
