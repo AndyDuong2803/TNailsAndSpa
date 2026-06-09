@@ -43,8 +43,10 @@ The build script:
 - reads `src/index.template.html`
 - injects all partials at build time
 - writes `dist/index.html`
+- writes a publish-ready root `index.html` for GitHub Pages when Pages is set to `main / (root)`
 - copies `assets/` into `dist/assets`
 - creates compatibility files under `dist/template08/images/demo08/` for the legacy inline image URLs used by the source HTML
+- creates root `template08/images/demo08/` compatibility files and a root `.nojekyll` file for GitHub Pages
 
 ## Local preview
 

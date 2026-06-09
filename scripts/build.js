@@ -5,6 +5,7 @@ const projectRoot = path.resolve(__dirname, "..");
 const srcDir = path.join(projectRoot, "src");
 const partialsDir = path.join(srcDir, "partials");
 const distDir = path.join(projectRoot, "dist");
+const noJekyllPath = path.join(projectRoot, ".nojekyll");
 const templatePath = path.join(srcDir, "index.template.html");
 const originalIndexPath = path.join(projectRoot, "index.html");
 
@@ -79,8 +80,8 @@ function copyDirectory(sourceDir, targetDir) {
   }
 }
 
-function copyLegacyAssetCompatibilityFiles() {
-  const legacyDir = path.join(distDir, "template08", "images", "demo08");
+function copyLegacyAssetCompatibilityFiles(targetRootDir) {
+  const legacyDir = path.join(targetRootDir, "template08", "images", "demo08");
   const imageDir = path.join(projectRoot, "assets", "images");
 
   const legacyAssets = [
@@ -196,10 +197,13 @@ function build() {
     copyDirectory(assetsSourceDir, assetsTargetDir);
   }
 
-  copyLegacyAssetCompatibilityFiles();
+  copyLegacyAssetCompatibilityFiles(distDir);
   writeText(path.join(distDir, "index.html"), output);
+  copyLegacyAssetCompatibilityFiles(projectRoot);
+  writeText(path.join(projectRoot, "index.html"), output);
+  writeText(noJekyllPath, "");
 
-  console.log("Built dist/index.html");
+  console.log("Built dist/index.html and root index.html");
 }
 
 function main() {
