@@ -1638,6 +1638,26 @@ footer .right-text-content ul li a:hover {
   color: #2a2a2a;
 }
 
+footer .left-text-content .footer-credit-link {
+  display: inline-block;
+  color: #d8a23d;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    text-decoration-color 0.25s ease;
+}
+
+footer .left-text-content .footer-credit-link:hover,
+footer .left-text-content .footer-credit-link:focus {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #d8a23d;
+  transform: translateY(-1px);
+}
+
 /* 
 ---------------------------------------------
 responsive
