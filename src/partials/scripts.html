@@ -72,21 +72,28 @@
     </script>
 
     <script>
-      $(".Modern-Slider").slick({
-        autoplay: true,
-        autoplaySpeed: 10000,
-        speed: 600,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        pauseOnHover: false,
-        dots: true,
-        pauseOnDotsHover: true,
-        cssEase: "linear",
-        // fade:true,
-        draggable: false,
-        prevArrow: '<button class="PrevArrow"></button>',
-        nextArrow: '<button class="NextArrow"></button>',
-      });
+      if (
+        $.fn.slick &&
+        $(".Modern-Slider").length &&
+        !$(".Modern-Slider").hasClass("slick-initialized")
+      ) {
+        $(".Modern-Slider").slick({
+          autoplay: true,
+          autoplaySpeed: 10000,
+          speed: 600,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          pauseOnHover: false,
+          dots: true,
+          pauseOnDotsHover: true,
+          cssEase: "linear",
+          draggable: true,
+          swipe: true,
+          touchMove: true,
+          prevArrow: '<button class="PrevArrow"></button>',
+          nextArrow: '<button class="NextArrow"></button>',
+        });
+      }
 
       $(function () {
         var selectedClass = "";
