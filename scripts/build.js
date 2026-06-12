@@ -8,6 +8,7 @@ const distDir = path.join(projectRoot, "dist");
 const noJekyllPath = path.join(projectRoot, ".nojekyll");
 const templatePath = path.join(srcDir, "index.template.html");
 const originalIndexPath = path.join(projectRoot, "index.html");
+const staticRootFiles = ["robots.txt", "sitemap.xml"];
 
 const partialFiles = {
   HEAD: "head.html",
@@ -198,6 +199,13 @@ function build() {
   }
 
   copyLegacyAssetCompatibilityFiles(distDir);
+  for (const fileName of staticRootFiles) {
+    const sourcePath = path.join(projectRoot, fileName);
+    if (fs.existsSync(sourcePath)) {
+      fs.copyFileSync(sourcePath, path.join(distDir, fileName));
+    }
+  }
+
   writeText(path.join(distDir, "index.html"), output);
   copyLegacyAssetCompatibilityFiles(projectRoot);
   writeText(path.join(projectRoot, "index.html"), output);
